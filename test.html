@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trang</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        #btnAgree {
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            top: 300px;
+            left: 300px;
+            border-radius: 10px;
+        }
+
+        #btnDecline {
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            top: 300px;
+            left: 700px;
+            border-radius: 10px;
+            transition: 0.5s;
+        }
+
+        #background {
+            position: absolute;
+            background-image: url("be.jpg");
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+        }
+
+        #text {
+            border: 1px solid red;
+            position: absolute;
+            font-size: 30px;
+            top: 200px;
+            left: 46%;
+        }
+    </style>
+</head>
+<body>
+        <div id="background"></div>
+        <p id="text">Yêu anh k?</p>
+        <button id="btnAgree">Đồng ý</button>
+        <button id="btnDecline">Chê</button>
+    <script>
+        $('#btnDecline').on('mouseover', function (e) {
+            e.stopPropagation();
+            debugger;
+            let height = $(window).height();
+            let width = $(window).width();
+            let randomHeight = randomIntFromInterval(0, height - 50);
+            let randomWidth = randomIntFromInterval(500, width - 100);
+            $('#btnDecline').css('top', randomHeight + 'px');
+            $('#btnDecline').css('left', randomWidth + 'px');
+        });
+
+        $('#btnAgree').click(function () {
+           window.open('https://www.facebook.com/HieuWH.InF/', '_blank');
+        });
+
+        function randomIntFromInterval(min, max) { // min and max included
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+    </script>
+</body>
+</html>
+
